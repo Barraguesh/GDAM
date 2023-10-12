@@ -7,8 +7,8 @@ function comenzarPartida() {
 	cogerNombre();
 
 	let element = document.getElementById("registro_nombre");
-    let op = 1; // initial opacity
-    
+	let op = 1;
+
 	let timer_fade_out = setInterval(function () {
 		if (op <= 0.1) {
 			clearInterval(timer_fade_out);
@@ -16,8 +16,8 @@ function comenzarPartida() {
 		}
 		element.style.opacity = op;
 		element.style.filter = "alpha(opacity=" + op * 100 + ")";
-        op -= op * 0.1;
-    }, 25);
+		op -= op * 0.1;
+	}, 25);
 }
 
 function cogerNombre() {
@@ -35,133 +35,23 @@ function clickElemento(element) {
 
 		switch (accionOrdenador()) {
 			case "piedra_ordenador":
-				switch (eleccion_jugador) {
-					case "piedra_jugador":
-						marcarResultado(["piedra_ordenador", "piedra_jugador"]);
-						puntuar("empate");
-						break;
-					case "papel_jugador":
-						marcarResultado(["piedra_ordenador", "papel_jugador"]);
-						puntuar("jugador");
-						break;
-					case "tijera_jugador":
-						marcarResultado(["piedra_ordenador", "tijera_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "lagarto_jugador":
-						marcarResultado(["piedra_ordenador", "lagarto_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "spock_jugador":
-						marcarResultado(["piedra_ordenador", "spock_jugador"]);
-						puntuar("jugador");
-						break;
-				}
-
+				ordenadorSeleccionPiedra(eleccion_jugador);
 				break;
 
 			case "papel_ordenador":
-				switch (eleccion_jugador) {
-					case "piedra_jugador":
-						marcarResultado(["papel_ordenador", "piedra_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "papel_jugador":
-						marcarResultado(["papel_ordenador", "papel_jugador"]);
-						puntuar("empate");
-						break;
-					case "tijera_jugador":
-						marcarResultado(["papel_ordenador", "tijera_jugador"]);
-						puntuar("jugador");
-						break;
-					case "lagarto_jugador":
-						marcarResultado(["papel_ordenador", "lagarto_jugador"]);
-						puntuar("jugador");
-						break;
-					case "spock_jugador":
-						marcarResultado(["papel_ordenador", "spock_jugador"]);
-						puntuar("ordenador");
-						break;
-				}
-
+				ordenadorSeleccionPapel(eleccion_jugador);
 				break;
 
 			case "tijera_ordenador":
-				switch (eleccion_jugador) {
-					case "piedra_jugador":
-						marcarResultado(["tijera_ordenador", "piedra_jugador"]);
-						puntuar("jugador");
-						break;
-					case "papel_jugador":
-						marcarResultado(["tijera_ordenador", "papel_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "tijera_jugador":
-						marcarResultado(["tijera_ordenador", "tijera_jugador"]);
-						puntuar("empate");
-						break;
-					case "lagarto_jugador":
-						marcarResultado(["tijera_ordenador", "lagarto_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "spock_jugador":
-						marcarResultado(["tijera_ordenador", "spock_jugador"]);
-						puntuar("jugador");
-						break;
-				}
-
+				ordenadorSeleccionTijera(eleccion_jugador);
 				break;
 
 			case "lagarto_ordenador":
-				switch (eleccion_jugador) {
-					case "piedra_jugador":
-						marcarResultado(["lagarto_ordenador", "piedra_jugador"]);
-						puntuar("jugador");
-						break;
-					case "papel_jugador":
-						marcarResultado(["lagarto_ordenador", "papel_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "tijera_jugador":
-						marcarResultado(["lagarto_ordenador", "tijera_jugador"]);
-						puntuar("jugador");
-						break;
-					case "lagarto_jugador":
-						marcarResultado(["lagarto_ordenador", "lagarto_jugador"]);
-						puntuar("empate");
-						break;
-					case "spock_jugador":
-						marcarResultado(["lagarto_ordenador", "spock_jugador"]);
-						puntuar("ordenador");
-						break;
-				}
-
+				ordenadorSeleccionLagarto(eleccion_jugador);
 				break;
 
 			case "spock_ordenador":
-				switch (eleccion_jugador) {
-					case "piedra_jugador":
-						marcarResultado(["spock_ordenador", "piedra_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "papel_jugador":
-						marcarResultado(["spock_ordenador", "papel_jugador"]);
-						puntuar("jugador");
-						break;
-					case "tijera_jugador":
-						marcarResultado(["spock_ordenador", "tijera_jugador"]);
-						puntuar("ordenador");
-						break;
-					case "lagarto_jugador":
-						marcarResultado(["spock_ordenador", "lagarto_jugador"]);
-						puntuar("jugador");
-						break;
-					case "spock_jugador":
-						marcarResultado(["spock_ordenador", "spock_jugador"]);
-						puntuar("empate");
-						break;
-				}
-
+				ordenadorSeleccionSpock(eleccion_jugador);
 				break;
 
 			default:
@@ -215,5 +105,151 @@ function puntuar(ganador) {
 	} else if (ganador == "ordenador") {
 		puntuacion_ordenador++;
 		document.getElementById("puntuacion_ordenador").textContent = puntuacion_ordenador;
+	}
+}
+
+//Funciones de selección de jugador para no complicar la interpretación de funciones
+function ordenadorSeleccionPiedra(eleccion_jugador) {
+	switch (eleccion_jugador) {
+		case "piedra_jugador":
+			marcarResultado(["piedra_ordenador", "piedra_jugador"]);
+			puntuar("empate");
+			break;
+
+		case "papel_jugador":
+			marcarResultado(["piedra_ordenador", "papel_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "tijera_jugador":
+			marcarResultado(["piedra_ordenador", "tijera_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "lagarto_jugador":
+			marcarResultado(["piedra_ordenador", "lagarto_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "spock_jugador":
+			marcarResultado(["piedra_ordenador", "spock_jugador"]);
+			puntuar("jugador");
+			break;
+	}
+}
+
+function ordenadorSeleccionPapel(eleccion_jugador) {
+	switch (eleccion_jugador) {
+		case "piedra_jugador":
+			marcarResultado(["papel_ordenador", "piedra_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "papel_jugador":
+			marcarResultado(["papel_ordenador", "papel_jugador"]);
+			puntuar("empate");
+			break;
+
+		case "tijera_jugador":
+			marcarResultado(["papel_ordenador", "tijera_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "lagarto_jugador":
+			marcarResultado(["papel_ordenador", "lagarto_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "spock_jugador":
+			marcarResultado(["papel_ordenador", "spock_jugador"]);
+			puntuar("ordenador");
+			break;
+	}
+}
+
+function ordenadorSeleccionTijera(eleccion_jugador) {
+	switch (eleccion_jugador) {
+		case "piedra_jugador":
+			marcarResultado(["tijera_ordenador", "piedra_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "papel_jugador":
+			marcarResultado(["tijera_ordenador", "papel_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "tijera_jugador":
+			marcarResultado(["tijera_ordenador", "tijera_jugador"]);
+			puntuar("empate");
+			break;
+
+		case "lagarto_jugador":
+			marcarResultado(["tijera_ordenador", "lagarto_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "spock_jugador":
+			marcarResultado(["tijera_ordenador", "spock_jugador"]);
+			puntuar("jugador");
+			break;
+	}
+}
+
+function ordenadorSeleccionLagarto(eleccion_jugador) {
+	switch (eleccion_jugador) {
+		case "piedra_jugador":
+			marcarResultado(["lagarto_ordenador", "piedra_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "papel_jugador":
+			marcarResultado(["lagarto_ordenador", "papel_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "tijera_jugador":
+			marcarResultado(["lagarto_ordenador", "tijera_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "lagarto_jugador":
+			marcarResultado(["lagarto_ordenador", "lagarto_jugador"]);
+			puntuar("empate");
+			break;
+
+		case "spock_jugador":
+			marcarResultado(["lagarto_ordenador", "spock_jugador"]);
+			puntuar("ordenador");
+			break;
+	}
+}
+
+function ordenadorSeleccionSpock(eleccion_jugador) {
+	switch (eleccion_jugador) {
+		case "piedra_jugador":
+			marcarResultado(["spock_ordenador", "piedra_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "papel_jugador":
+			marcarResultado(["spock_ordenador", "papel_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "tijera_jugador":
+			marcarResultado(["spock_ordenador", "tijera_jugador"]);
+			puntuar("ordenador");
+			break;
+
+		case "lagarto_jugador":
+			marcarResultado(["spock_ordenador", "lagarto_jugador"]);
+			puntuar("jugador");
+			break;
+
+		case "spock_jugador":
+			marcarResultado(["spock_ordenador", "spock_jugador"]);
+			puntuar("empate");
+			break;
 	}
 }
