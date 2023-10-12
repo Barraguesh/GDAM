@@ -15,35 +15,42 @@
 		<script src="./script.js" type="text/javascript"></script>
 	</head>
 	<body class="row align-items-center">
-		<section class="container d-flex align-items-center justify-content-center">
+		<section id="registro_nombre" class="container d-flex align-items-center justify-content-center">
 			<input type="text" id="nombre_jugador" class="me-3" autofocus />
-			<button type="button" onclick="comenzar_partida()" class="btn btn-primary">Jugar!</button>
+			<button type="button" onclick="comenzarPartida()" class="btn btn-primary">Jugar!</button>
 		</section>
 
 		<section class="container text-center">
 			<div class="columna row">
 				<div id="jugador" class="col d-flex flex-column">
-					<img src="./media/rock.png" id="piedra_jugador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Piedra" />
-					<img src="./media/paper.png" id="papel_jugador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Papel" />
-					<img src="./media/scissors.png" id="tijera_jugador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Tijera" />
-					<img src="./media/lizard.png" id="lagarto_jugador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Lagarto" />
-					<img src="./media/spock.png" id="spock_jugador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Spock" />
+					<img src="./media/rock.png" id="piedra_jugador" class="imagenJugador mx-auto" onclick="clickElemento(this)" alt="Piedra" />
+					<img src="./media/paper.png" id="papel_jugador" class="imagenJugador mx-auto" onclick="clickElemento(this)" alt="Papel" />
+					<img src="./media/scissors.png" id="tijera_jugador" class="imagenJugador mx-auto" onclick="clickElemento(this)" alt="Tijera" />
+					<img src="./media/lizard.png" id="lagarto_jugador" class="imagenJugador mx-auto" onclick="clickElemento(this)" alt="Lagarto" />
+					<img src="./media/spock.png" id="spock_jugador" class="imagenJugador mx-auto" onclick="clickElemento(this)" alt="Spock" />
 				</div>
 
 				<div id="resultado" class="col d-flex flex-column justify-content-between">
-					<div style="border: solid">Puntuacion</div>
-					<div style="border: solid">Resultado</div>
-					<div style="border: solid">
-						<p id="nombre_jugador_display"></p>
+					<div>
+						<h3>Puntuacion:</h3>
+						<h4> Jugador <span id="puntuacion_jugador">0</span> - Ordenador <span id="puntuacion_ordenador">0</span></h4>
+					</div>
+					<div class="d-flex align-items-center">
+						<img id="resultado_jugador" class="imagen mx-auto" alt="Resultado jugador" />
+						<h2>VS</h2>
+						<img id="resultado_ordenador" class="imagen mx-auto" alt="Resultado ordenador" />
+					</div>
+					<div class="nombre_jugador_div">
+						<h3 id="nombre_jugador_display"></h3>
 					</div>
 				</div>
 
 				<div id="ordenador" class="col d-flex flex-column">
-					<img src="./media/rock.png" id="piedra_ordenador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Piedra" />
-					<img src="./media/paper.png" id="papel_ordenador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Papel" />
-					<img src="./media/scissors.png" id="tijera_ordenador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Tijera" />
-					<img src="./media/lizard.png" id="lagarto_ordenador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Lagarto" />
-					<img src="./media/spock.png" id="spock_ordenador" class="imagen img-fluid mx-auto" onclick="click_elemento(this)" alt="Spock" />
+					<img src="./media/rock.png" id="piedra_ordenador" class="imagen mx-auto" onclick="clickElemento(this)" alt="Piedra" />
+					<img src="./media/paper.png" id="papel_ordenador" class="imagen mx-auto" onclick="clickElemento(this)" alt="Papel" />
+					<img src="./media/scissors.png" id="tijera_ordenador" class="imagen mx-auto" onclick="clickElemento(this)" alt="Tijera" />
+					<img src="./media/lizard.png" id="lagarto_ordenador" class="imagen mx-auto" onclick="clickElemento(this)" alt="Lagarto" />
+					<img src="./media/spock.png" id="spock_ordenador" class="imagen mx-auto" onclick="clickElemento(this)" alt="Spock" />
 				</div>
 			</div>
 		</section>
