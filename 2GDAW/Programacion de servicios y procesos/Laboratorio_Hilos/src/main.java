@@ -7,13 +7,15 @@ public class main {
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Introduce el primer numero: ");
-		Integer primer_numero = input.nextInt();
+		Double primer_numero = input.nextDouble();
 
 		System.out.println("Introduce el segundo numero: ");
-		Integer segundo_numero = input.nextInt();
+		Double segundo_numero = input.nextDouble();
 
 		System.out.println("Introduce el tercer numero: ");
-		Integer tercer_numero = input.nextInt();
+		Double tercer_numero = input.nextDouble();
+		
+		input.close();
 
 		System.out.println("Los numeros introducidos son: " + primer_numero + " " + segundo_numero + " " + tercer_numero);
 		
