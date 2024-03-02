@@ -1,4 +1,0 @@
- Operaciones y Entrada/Salida
-
-Ejercicio que se pida dos numeros por pantalla y saque sus operaciones
-matemáticas con esos dos numeros (suma,resta, multiplicacion y division)
