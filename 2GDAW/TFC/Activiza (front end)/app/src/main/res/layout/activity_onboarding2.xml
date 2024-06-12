@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/ob1"
+    tools:context=".ui.view.Onboarding2Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <View
+            android:id="@+id/viewOrangeLine"
+            android:layout_width="0dp"
+            android:background="@color/blue_light"
+            android:layout_height="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            />
+        <View
+            android:id="@+id/viewGrayLine"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:background="@color/gray_line"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginVertical="20dp"
+        android:text="@string/activiza"
+        android:fontFamily="@font/poppins_black"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textColor="@color/splash_background"
+        />
+    <TextView
+        android:id="@+id/tvPresentacionOnboarding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:text="¿Cúal es tu meta?"
+        />
+
+        <RadioGroup
+            android:id="@+id/rgObjetivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            >
+
+            <RadioButton
+                android:id="@+id/rbGanarMasa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/ganar_masa_muscular"
+                android:textColor="@drawable/text_rb_colors"
+                android:textSize="16sp"/>
+
+            <RadioButton
+                android:id="@+id/rbPerderPeso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/perder_peso"
+                android:textColor="@drawable/text_rb_colors"
+                android:textSize="16sp"/>
+
+        </RadioGroup>
+    <TextView
+        android:id="@+id/tvGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:text="@string/cual_es_tu_genero"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        />
+
+    <RadioGroup
+        android:id="@+id/rgPersona"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rbHombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/hombre"
+            android:textColor="@drawable/text_rb_colors"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rbMujer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@drawable/text_rb_colors"
+            android:text="@string/mujer" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvLugarEntrenamiento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:text="¿Donde entrenas?"
+        />
+
+    <RadioGroup
+        android:id="@+id/rgLugar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        >
+
+        <RadioButton
+            android:id="@+id/rbGym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/gimnasio"
+            android:textColor="@drawable/text_rb_colors"
+            android:textSize="16sp"/>
+
+        <RadioButton
+            android:id="@+id/rbCasa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/casa"
+            android:textColor="@drawable/text_rb_colors"
+            android:textSize="16sp"/>
+
+    </RadioGroup>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnNext"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:backgroundTint="@color/blue_light"
+        app:cardCornerRadius="16dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/siguiente"
+            android:fontFamily="@font/poppins_black"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
